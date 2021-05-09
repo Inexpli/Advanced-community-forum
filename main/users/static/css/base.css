@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.container-fluid {
+    padding: 80px 20% 0 20%;
+}  
+
+li {
+    color: #28a745
+}

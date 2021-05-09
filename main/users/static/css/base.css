@@ -9,3 +9,12 @@
 li {
     color: #28a745
 }
+
+.nav-link {
+    font-size: 1.1rem;
+}
+
+nav {
+    padding: .2rem 1rem !important;
+}
+

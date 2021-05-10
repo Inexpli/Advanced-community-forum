@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav {
+    padding: .2rem 1rem !important;
+}
+
+.slide-img {
+    max-height: 689px;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+.featurette {
+    padding-top: 70px;
+}
+
+img {
+    max-height: 280px;
+}
+
+.ending {
+    padding-bottom: 70px;
+}

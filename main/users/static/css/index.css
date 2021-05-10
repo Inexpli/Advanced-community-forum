@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 95vh;
+}
+
+.left {
+    width: 50%;
+    height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.right {
+    width: 50%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 50px;
+}

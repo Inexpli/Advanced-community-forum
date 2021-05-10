@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.container-fluid {
-    padding: 80px 20% 0 20%;
-}  
-
 li {
     color: #28a745
 }
@@ -19,3 +15,13 @@ nav {
     padding: .2rem 1rem !important;
 }
 
+.container {
+    padding-top: 30px !important;
+    padding-right: 10% !important;
+    padding-left: 10% !important;
+    padding-bottom: 10px !important;
+}
+
+.asteriskField {
+    color: red;
+}

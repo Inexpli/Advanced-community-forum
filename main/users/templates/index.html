@@ -25,8 +25,8 @@
                 <div class="content">
                     <h1>Would you like to join to team of experienced new technology engineers called <sup><img src="{% static 'img/icon.png' %}" alt="icon"  width="30" height="30"></sup>CriTech?</h1>
                     <br>
-                    <a href="/register"><button type="button" class="btn btn-outline-primary">Create an Account</button></a>
-                    <a href="/login"><button type="button" class="btn btn-outline-primary">Log in</button></a>
+                    <a href="{% url 'register' %}"><button type="button" class="btn btn-outline-primary">Create an Account</button></a>
+                    <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary">Log in</button></a>
                 </div>
             </div>
         </div>

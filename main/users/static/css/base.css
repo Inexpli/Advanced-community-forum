@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-li {
-    color: #28a745
-}
-
 .nav-link {
     font-size: 1.1rem;
     font-weight: 500;

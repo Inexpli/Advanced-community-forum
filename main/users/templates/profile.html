@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <div class="container" style="text-align: center;">
+        <!-- <img profil -->
+        <h1>{{ user.username }}</h1>
+        <h2>{{ user.email }}</h2>
+        <button type="button" class="btn btn-danger" style="margin-top: 20px;">Change Password</button>
+    </div>
+{% endblock %}

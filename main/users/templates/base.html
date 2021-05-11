@@ -35,17 +35,34 @@
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          </li>
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </span>
+      {% else %}
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
-      </ul>
-      <span class="navbar-text">
+        </ul>
+        <span class="navbar-text">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
-      </span>
+        </span>
+        <span class="navbar-text">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </span>
+      {% endif %}
       </div>
   </nav>
     {% block content %}{% endblock %}

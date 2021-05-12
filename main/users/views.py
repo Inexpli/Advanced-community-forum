@@ -3,11 +3,32 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+posts = [
+    {
+        'author': 'Eldzej02',
+        'title': 'Birthday',
+        'content': 'A birthday is the anniversary of the birth of a person, or figuratively of an institution. Birthdays of people are celebrated in numerous cultures, often with birthday gifts, birthday cards, a birthday party, or a rite of passage.',
+        'date': '10 May 2021',
+    },
+    {
+        'author': 'Eldzej02',
+        'title': 'Previous day',
+        'content': 'I didn\'t feel well the previous day, i must say.',
+        'date': '11 May 2021',
+    },
+    {
+        'author': 'Eldzej02',
+        'title': 'Today\'s day',
+        'content': 'Today was sunny at the morning but later, during the noon it started raining',
+        'date': '12 May 2021',
+    }
+]
+
 def index(request):
     context = {}
     if request.user.is_authenticated:
         context['parent_template'] = 'home.html'
+        context['posts'] = posts
     else:
         context['parent_template'] = 'index_not_auth.html'
     return render(request, 'index.html', context)
@@ -17,7 +38,10 @@ def about(request):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'posts': posts
+    }
+    return render(request, 'home.html', context)
 
 @login_required
 def profile(request):

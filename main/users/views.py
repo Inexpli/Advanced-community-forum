@@ -11,13 +11,13 @@ posts = [
         'date': '10 May 2021',
     },
     {
-        'author': 'Eldzej02',
+        'author': 'AFX',
         'title': 'Previous day',
         'content': 'I didn\'t feel well the previous day, i must say.',
         'date': '11 May 2021',
     },
     {
-        'author': 'Eldzej02',
+        'author': 'AFX',
         'title': 'Today\'s day',
         'content': 'Today was sunny at the morning but later, during the noon it started raining',
         'date': '12 May 2021',

@@ -2,33 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
-
-posts = [
-    {
-        'author': 'Eldzej02',
-        'title': 'Birthday',
-        'content': 'A birthday is the anniversary of the birth of a person, or figuratively of an institution. Birthdays of people are celebrated in numerous cultures, often with birthday gifts, birthday cards, a birthday party, or a rite of passage.',
-        'date': '10 May 2021',
-    },
-    {
-        'author': 'AFX',
-        'title': 'Previous day',
-        'content': 'I didn\'t feel well the previous day, i must say.',
-        'date': '11 May 2021',
-    },
-    {
-        'author': 'AFX',
-        'title': 'Today\'s day',
-        'content': 'Today was sunny at the morning but later, during the noon it started raining',
-        'date': '12 May 2021',
-    }
-]
+from .models import Post
 
 def index(request):
     context = {}
     if request.user.is_authenticated:
-        context['parent_template'] = 'home.html'
-        context['posts'] = posts
+        context['parent_template'] = 'index_auth.html'
     else:
         context['parent_template'] = 'index_not_auth.html'
     return render(request, 'index.html', context)
@@ -39,7 +18,7 @@ def about(request):
 @login_required
 def home(request):
     context = {
-        'posts': posts
+        'posts': Post.objects.all(),
     }
     return render(request, 'home.html', context)
 

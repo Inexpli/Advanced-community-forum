@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
+from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -18,4 +19,12 @@ def save(self, *args, **kwargs):
         output_size = (300,300)
         img.thumbnail(output_size)
         img.save(self.image.path)
-    
+
+class Post(models.Model):
+    title = models.CharField(max_length=30)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

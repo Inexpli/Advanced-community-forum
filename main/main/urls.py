@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from users.views import PostListView, PostDetailView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +29,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('', user_views.index, name='index'),
     path('about/', user_views.about, name='about'),
-    path('home/', user_views.home, name='home'),
+    path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'),  
+    path('home/', PostListView.as_view(), name='home'),
     path('profile/', user_views.profile, name='profile'),
 ]   
 

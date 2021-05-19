@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
-from users.views import PostListView, PostDetailView
+from users.views import PostListView, PostDetailView, PostCreateView, PostEditView, PostDeleteView
 
 
 urlpatterns = [
@@ -30,6 +30,9 @@ urlpatterns = [
     path('', user_views.index, name='index'),
     path('about/', user_views.about, name='about'),
     path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'),  
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/edit/', PostEditView.as_view(), name='post-edit'),  
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('home/', PostListView.as_view(), name='home'),
     path('profile/', user_views.profile, name='profile'),
 ]   

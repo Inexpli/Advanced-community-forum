@@ -5,14 +5,18 @@
     <div class="container">
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-            <div class="media-body">
-              <div class="article-metadata">
-                <a class="mr-2" href="#">{{ object.author }}</a>
-                <small class="text-muted">{{ object.date_posted }}</small>
-              </div>
-              <h2>{{ object.title }}</h2>
-              <p class="article-content">{{ object.content }}</p>
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted }}</small>
+              {% if object.author == user %}
+                <a href="{% url 'post-delete' object.id %}" style="float: right;">Delete</a>
+                <a href="{% url 'post-edit' object.id %}" style="float: right; margin-right: 10px;">Edit</a>
+              {% endif %}
             </div>
+            <h2>{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+          </div>
         </article>
     </div>
 {% endblock %}

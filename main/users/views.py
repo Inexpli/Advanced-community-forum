@@ -30,6 +30,7 @@ class PostListView(LoginRequiredMixin, ListView):
     template_name = 'home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by = 2
 
 
 class PostDetailView(LoginRequiredMixin, DetailView):

@@ -13,6 +13,6 @@
 ##### Front End:
  - Bootstrap (v5.0.0-beta2)
 ##### Back END:
- - QSLite3
+ - SQLite3
 
 ### Time considered in WebApp is UTC

@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
-from users.views import PostListView, PostDetailView, PostCreateView, PostEditView, PostDeleteView
+from users.views import PostListView, PostDetailView, PostCreateView, PostEditView, PostDeleteView, UserPostListView
 
 
 urlpatterns = [
@@ -34,6 +34,7 @@ urlpatterns = [
     path('post/<int:pk>/edit/', PostEditView.as_view(), name='post-edit'),  
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('home/', PostListView.as_view(), name='home'),
+    path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path('profile/', user_views.profile, name='profile'),
 ]   
 

@@ -2,10 +2,12 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <div class="container">
-      <div class="add-function text-center" style="margin-bottom: 20px;">
-        <a href="{% url 'post-create' %}" class="btn btn-primary">Create a post</a>
+<div class="container">
+      <div class="profile-info text-center">
+        <h1 class="mb-4" >{{ view.kwargs.username }}</h1>
+        <h2 style="margin: 0;" >Number of posts: {{ page_obj.paginator.count }}</h2>
       </div>
+      <br>
         {% if posts %}
           {% for post in posts %}
           <article class="media content-section">

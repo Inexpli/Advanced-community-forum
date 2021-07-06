@@ -10,7 +10,7 @@ from .models import Post
 def index(request):
     context = {}
     if request.user.is_authenticated:
-        context['parent_template'] = 'index_auth.html'
+        redirect('home')
     else:
         context['parent_template'] = 'index_not_auth.html'
     return render(request, 'index.html', context)

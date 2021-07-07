@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     {% block css %}<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">{% endblock %}
 
-    <title>{% block title %}BASE.HTML{% endblock %}</title>
+    <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
     {% if messages %}
@@ -35,7 +35,7 @@
           <img src="{% static 'img/icon.png' %}" alt="icon"  width="40" height="40">
       </a>
       {% else %}
-      <a class="navbar-brand" href="{% url 'index' %}">
+      <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'img/icon.png' %}" alt="icon"  width="40" height="40">
       </a>
       {% endif %}

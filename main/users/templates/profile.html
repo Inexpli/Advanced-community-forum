@@ -20,7 +20,8 @@
                 <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
                 <div class="details">
                   <h2 class="account-heading">{{ user.username }}</h2>
-                  <p class="text-secondary">{{ user.email }}</p>
+                  <p class="text-secondary" style="margin-bottom: 0.5rem;">{{ user.email }}</p>
+                  <a href="{% url 'password_reset' %}">Change your password</a>
                 </div>
             </div>
             <form method="POST" enctype="multipart/form-data">

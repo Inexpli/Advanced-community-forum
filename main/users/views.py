@@ -8,27 +8,21 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 
 def index(request):
-    context = {}
+    context = {
+        'posts': Post.objects.all(),
+    }
     if request.user.is_authenticated:
-        redirect('home')
+        return render(request, 'index.html', context)
     else:
-        context['parent_template'] = 'index_not_auth.html'
-    return render(request, 'index.html', context)
+        return render(request, 'index_not_auth.html', context)
 
 def about(request):
     return render(request, 'about.html')
 
-@login_required
-def home(request):
-    context = {
-        'posts': Post.objects.all(),
-    }
-    return render(request, 'home.html', context)
 
-
-class PostListView(LoginRequiredMixin, ListView):
+class PostListView(ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'index.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 3

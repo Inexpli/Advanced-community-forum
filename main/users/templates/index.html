@@ -1,1 +1,50 @@
-{% extends parent_template %}
+{% if user.is_authenticated %}
+    {% include 'base.html' %}
+    {% load static %}
+    {% block content %}
+    <div class="container">
+      <div class="add-function text-center" style="margin-bottom: 20px;">
+        <a href="{% url 'post-create' %}" class="btn btn-primary">Create a post</a>
+      </div>
+        {% if posts %}
+          {% for post in posts %}
+          <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                  <small class="text-muted">{{ post.date_posted }}</small>
+                </div>
+                <a class="article-title" href="{% url 'post-detail' post.id %}"><h2>{{ post.title }}</h2></a>
+                <p class="article-content">{{ post.content }}</p>
+              </div>
+          </article>
+          {% endfor %}
+        {% endif %}
+
+        {% if is_paginated %}
+          <div class="page-numbers text-center">
+            {% if page_obj.has_previous %}
+              <a class="btn btn-outline-primary mb-4" href="?page=1">First</a>
+              <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+      
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <a class="btn btn-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-primary mb-4" href="?page={{ num }}">{{ num }}</a>
+              {% endif %}
+            {% endfor %}
+      
+            {% if page_obj.has_next %}
+              <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+              <a class="btn btn-outline-primary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+          </div>
+        {% endif %}
+    </div>
+    {% endblock %}
+{% else %}
+    {% include 'index_not_auth.html' %}
+{% endif %}

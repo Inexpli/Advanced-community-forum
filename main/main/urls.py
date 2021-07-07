@@ -48,8 +48,7 @@ urlpatterns = [
          ),
          name='password_reset_complete'),
 
-    path('', user_views.index, name='index'),
-    path('home/', PostListView.as_view(), name='home'),
+    path('', PostListView.as_view(), name='home'),
     path('about/', user_views.about, name='about'),
     path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'),  
     path('post/new/', PostCreateView.as_view(), name='post-create'),

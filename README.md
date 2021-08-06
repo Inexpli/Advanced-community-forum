@@ -11,7 +11,7 @@
  - typing-extensions==3.10.0.0
 
 ##### Front End:
- - Bootstrap (v5.0.0-beta2)
+ - Bootstrap (v4.5.0)
 ##### Back END:
  - SQLite3
 
